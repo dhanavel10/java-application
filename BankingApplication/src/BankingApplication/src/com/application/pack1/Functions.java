@@ -8,7 +8,7 @@ public class Functions {
 	static long accoutNumber;
 	static double balance;
 	
-	
+	HashMap<Long,Account> accDetails= new HashMap<>();
 	//create account
 
 	public void createAccount() {
@@ -24,7 +24,8 @@ public class Functions {
 		System.out.println("branch name : ");
 		String branchName=sc.next();
 		Account acc= new Account(name,age,address,branchName);
-		Main.accDetails.put(acc.accountNumber, acc);
+		
+		accDetails.put(acc.accountNumber, acc);
 		
 		
 		System.out.println("Account Created succesfully");
@@ -40,14 +41,14 @@ public class Functions {
 	public boolean logIn() {
 		System.out.println("Enter account number");
 		long number= sc.nextLong();
-		if(!Main.accDetails.containsKey(number)) {
+		if(!accDetails.containsKey(number)) {
 			System.out.println("Invalid number");
 		}
 		else {
-			System.out.println("Welcome "+Main.accDetails.get(number).name);
-			Functions.name=Main.accDetails.get(number).name;
-			Functions.balance=Main.accDetails.get(number).balance;
-			Functions.accoutNumber=Main.accDetails.get(number).accountNumber;
+			System.out.println("Welcome "+accDetails.get(number).name);
+			Functions.name=accDetails.get(number).name;
+			Functions.balance=accDetails.get(number).balance;
+			Functions.accoutNumber=accDetails.get(number).accountNumber;
 			return true;
 		}
 		return false;
@@ -60,7 +61,7 @@ public class Functions {
 		System.out.println("Enter the amount for deposit : ");
 		double amount = sc.nextDouble();
 		Functions.balance+=amount;
-		Main.accDetails.get(Functions.accoutNumber).balance+=amount;
+		accDetails.get(Functions.accoutNumber).balance+=amount;
 		
 		
 	}
@@ -75,7 +76,7 @@ public class Functions {
 		}
 		else {
 		Functions.balance-=amount;
-		Main.accDetails.get(Functions.accoutNumber).balance-=amount;
+		accDetails.get(Functions.accoutNumber).balance-=amount;
 		}
 	}
 	
@@ -83,7 +84,7 @@ public class Functions {
 	
 	public void checkBalance() {
 		
-		System.out.println(Main.accDetails.get(Functions.accoutNumber).name);
+		System.out.println(accDetails.get(Functions.accoutNumber).name);
 		System.out.println("Account balance : "+Functions.balance);
 	}
 	//tranfer amount
@@ -97,11 +98,11 @@ public class Functions {
 		}
 		else {
 		
-		if(Main.accDetails.containsKey(accountNumber)) {
-			Main.accDetails.get(accountNumber).balance+=amount;
+		if(accDetails.containsKey(accountNumber)) {
+			accDetails.get(accountNumber).balance+=amount;
 			System.out.println("Transfer Success");
 			Functions.balance-=amount;
-			Main.accDetails.get(Functions.accoutNumber).balance-=amount;
+			accDetails.get(Functions.accoutNumber).balance-=amount;
 		}
 		else {
 			System.out.println("Account number not available!");
