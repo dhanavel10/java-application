@@ -33,7 +33,7 @@ public class Main {
 					
 					while(flag) {
 						System.out.println("Enter the choice : ");
-						System.out.println("Deposit Withdraw check balance transfer logout");
+						System.out.println("1.Deposit \n2.Withdraw \n3.Check balance \n4.Transfer \n5.Logout");
 						int ch= sc.nextInt();
 						
 						switch(ch) {
