@@ -8,7 +8,7 @@ public class Account {
 	int age;
 	String address;
 	String branchName;
-	long balance;
+	double balance;
 	int branchId;
 	Random ran= new Random();
 	
