@@ -52,7 +52,7 @@ public class Functions {
 			Functions.name=accDetails.get(number).name;
 			Functions.balance=accDetails.get(number).balance;
 			Functions.accoutNumber=accDetails.get(number).accountNumber;
-			Main.c=1;
+			
 		}
 	}
 	
