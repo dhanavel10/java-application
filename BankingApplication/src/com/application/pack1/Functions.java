@@ -61,7 +61,7 @@ public class Functions {
 	public void deposit() {
 		
 		System.out.println("Enter the amount for deposit : ");
-		int amount = sc.nextInt();
+		double amount = sc.nextDouble();
 		Functions.balance+=amount;
 		accDetails.get(Functions.accoutNumber).balance+=amount;
 		
@@ -72,7 +72,7 @@ public class Functions {
 	
 	public void withDraw() {
 		System.out.println("Enter the amount for withdraw : ");
-		int amount = sc.nextInt();
+		double amount = sc.nextDouble();
 		if(Functions.balance-amount<0) {
 			System.out.println("Not Enough amount");
 		}
@@ -92,7 +92,7 @@ public class Functions {
 	//tranfer amount
 	
 	public void tranferAmount() {
-		int amount=sc.nextInt();
+		double amount=sc.nextDouble();
 		long accountNumber=sc.nextLong();
 		
 		if(Functions.balance<amount) {
