@@ -7,7 +7,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Main {
-	static HashMap<Long, Account> accDetails = new HashMap<>();
+	
 	
 
 	public static void main(String[] args) {
